@@ -11,7 +11,7 @@ const upload = multer({ dest: 'uploads/' });
 
 app.use(cors());
 
-app.post('/recognize', upload.single('audio'), async (req, res) => {
+app.post('/recognize', upload.single('audio'), async (req: any, res: any) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
