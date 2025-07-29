@@ -18,10 +18,10 @@ app.post('/recognize', upload.single('audio'), async (req: any, res: any) => {
     }
 
     const result = await recognizeACRCloud(req.file.path);
-    res.json(result);
+    return res.json(result);
   } catch (error) {
     console.error('Recognition failed:', error);
-    res.status(500).json({ error: 'Recognition failed' });
+    return res.status(500).json({ error: 'Recognition failed' });
   }
 });
 
